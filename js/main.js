@@ -125,6 +125,22 @@ function initChapterNav() {
       if (entry.isIntersecting) {
         const index = Array.from(chapters).indexOf(entry.target);
         dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        
+        // Sync with navbar if on home page
+        if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+          const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+          const chapterName = entry.target.dataset.chapter.toLowerCase();
+          
+          navLinks.forEach(link => {
+            const linkText = link.textContent.toLowerCase();
+            link.classList.remove('active');
+            
+            if (chapterName.includes('beginning') && linkText.includes('home')) link.classList.add('active');
+            if (chapterName.includes('product') && linkText.includes('brush')) link.classList.add('active');
+            if (chapterName.includes('why') && linkText.includes('about')) link.classList.add('active');
+            if (chapterName.includes('contact') && linkText.includes('contact')) link.classList.add('active');
+          });
+        }
       }
     });
   }, { threshold: 0.3 });
@@ -260,27 +276,26 @@ function initParticles() {
   }
 }
 
-/* ===== Drag-to-Scroll for Product Track ===== */
+/* ===== Dedicated Button Scroll for Product Track ===== */
 function initDragScroll() {
   const track = document.querySelector('.product-scroll-track');
-  if (!track) return;
+  const prevBtn = document.getElementById('productPrev');
+  const nextBtn = document.getElementById('productNext');
+  if (!track || !prevBtn || !nextBtn) return;
 
-  let isDown = false, startX, scrollLeft;
+  // Manual scroll using buttons only
+  const cardWidth = 360 + 32; // card + gap
+  
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  });
 
-  track.addEventListener('mousedown', e => {
-    isDown = true;
-    track.style.cursor = 'grabbing';
-    startX = e.pageX - track.offsetLeft;
-    scrollLeft = track.scrollLeft;
-  });
-  track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
-  track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
-  track.addEventListener('mousemove', e => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
-  });
+  // Hide horizontal scroll interaction but keep programmatic scroll functional
+  track.style.overflowX = 'hidden';
 }
 
 /* ===== Parallax Layers ===== */
@@ -390,6 +405,34 @@ function initSmoothScroll() {
   });
 }
 
+/* ===== Category Nav Scroll Spy ===== */
+function initCategorySpy() {
+  const catNav = document.querySelector('.category-nav');
+  const catLinks = document.querySelectorAll('.cat-link');
+  if (!catNav || !catLinks.length) return;
+
+  const sections = document.querySelectorAll('.inner-section[id]');
+  
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      if (window.scrollY >= top - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    catLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+
+    // Make it sticky with offset handled by CSS (top: 80px)
+  }, { passive: true });
+}
+
 /* ===== Active nav link ===== */
 (function() {
   const page = window.location.pathname.split('/').pop() || 'index.html';
@@ -399,4 +442,5 @@ function initSmoothScroll() {
       link.classList.add('active');
     }
   });
+  initCategorySpy();
 })();
