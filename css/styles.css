@@ -63,6 +63,19 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Industrial Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%; height: 100%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 10000;
 }
 
 img { max-width: 100%; height: auto; display: block; }
