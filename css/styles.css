@@ -580,16 +580,25 @@ h3 { font-family: var(--font-sub); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font
   padding: 8rem 0;
 }
 
-.chapter-intro .chapter-number {
+/* Global Chapter Numbering */
+.chapter {
+  position: relative; /* Ensure all chapters are relative for absolute numbering */
+}
+
+.chapter .chapter-number {
   font-family: var(--font-heading);
-  font-size: 8rem;
+  font-size: 18rem; /* Dramatically increased for that cinematic feel */
   font-weight: 900;
-  color: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.02); /* More subtle as requested */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  letter-spacing: -1rem; /* Condensed look like the screenshot */
   pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .story-block {
@@ -1408,6 +1417,43 @@ h3 { font-family: var(--font-sub); font-size: clamp(1.1rem, 2.5vw, 1.4rem); font
   background: rgba(255, 106, 0, 0.1);
   border-color: var(--secondary);
   color: var(--secondary);
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: -60px;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(255, 106, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.visible {
+  bottom: 6.5rem; /* Moved above WhatsApp button */
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  background: var(--secondary-light);
+  box-shadow: 0 12px 30px rgba(255, 106, 0, 0.4);
+}
+
+.back-to-top i {
+  font-size: 1.2rem;
 }
 
 /* ===== RESPONSIVE ===== */

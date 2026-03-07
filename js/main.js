@@ -3,7 +3,10 @@
    Interactive, scroll-driven narrative engine
    ============================================ */
 
+let lenis;
+
 document.addEventListener('DOMContentLoaded', () => {
+  initLenis();
   initCustomCursor();
   initScrollProgress();
   initNavbar();
@@ -19,7 +22,53 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initTextReveal();
   initTiltCards();
+  initBackToTop();
 });
+
+/* ===== Lenis Smooth Scroll ===== */
+function initLenis() {
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
+
+/* ===== Back to Top Button ===== */
+function initBackToTop() {
+  const btn = document.createElement('div');
+  btn.className = 'back-to-top';
+  btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    if (typeof lenis !== 'undefined') {
+      lenis.scrollTo(0);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+}
 
 /* ===== Custom Cursor ===== */
 function initCustomCursor() {
