@@ -65,7 +65,8 @@ const productData = {
       { i: "fa-tools", h: "Weld Cleaning", p: "Removing spatter and slag from heavy weld seams." },
       { i: "fa-shield-virus", h: "Rust Removal", p: "Aggressive clearing of oxidized layers on metal plates." },
       { i: "fa-layer-group", h: "Deburring", p: "Removing sharp edges from machined components." }
-    ]
+    ],
+    image: "assets/images/products/circular-brush.png"
   },
   giwire: {
     title: "Galvanised Iron Wire Brush",
@@ -171,7 +172,15 @@ function initProductDetails() {
     btn.addEventListener('click', () => {
       const id = btn.dataset.product;
       const data = productData[id];
-      if (data) renderProduct(data, overlay, content);
+      if (data) {
+        // Robust image fallback from DOM if JS data is missing it
+        if (!data.image) {
+          const card = btn.closest('.product-detail-card, .product-card');
+          const img = card ? card.querySelector('img') : null;
+          if (img) data.image = img.getAttribute('src');
+        }
+        renderProduct(data, overlay, content);
+      }
     });
   });
 
@@ -201,6 +210,7 @@ function initProductDetails() {
 }
 
 function renderProduct(data, overlay, container) {
+  // Ensure we clear content first
   container.innerHTML = `
     <div class="detail-hero-grid">
       <div class="content-side">
@@ -213,7 +223,10 @@ function renderProduct(data, overlay, container) {
         </div>
       </div>
       <div class="detail-visual" style="background: ${data.color}">
-        <i class="fas ${data.icon}"></i>
+        ${data.image ? 
+          `<img src="${data.image}" alt="${data.title}" style="max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); animation: fadeScale 0.8s ease-out;">` : 
+          `<i class="fas ${data.icon}"></i>`
+        }
       </div>
     </div>
 
