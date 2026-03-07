@@ -131,7 +131,7 @@
               <span class="tag">Non-Sparking</span>
               <span class="tag">Surface Cleaning</span>
             </div>
-            <a href="brushes.html#brass" class="btn btn-primary" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> Learn More</a>
+            <button class="btn btn-primary view-details-btn" data-product="brass" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> View Details</button>
           </div>
         </div>
         <!-- Brass Wire Brush Cup -->
@@ -147,7 +147,7 @@
               <span class="tag">Polishing</span>
               <span class="tag">Light Deburring</span>
             </div>
-            <a href="brushes.html#brasscup" class="btn btn-primary" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> Learn More</a>
+            <button class="btn btn-primary view-details-btn" data-product="brasscup" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> View Details</button>
           </div>
         </div>
         <!-- Circular Wire Brush -->
@@ -163,7 +163,7 @@
               <span class="tag">Weld Cleaning</span>
               <span class="tag">Surface Prep</span>
             </div>
-            <a href="brushes.html#circular" class="btn btn-primary" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> Learn More</a>
+            <button class="btn btn-primary view-details-btn" data-product="circular" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> View Details</button>
           </div>
         </div>
         <!-- Bottle Cleaning Brush -->
@@ -179,7 +179,7 @@
               <span class="tag">Beverages</span>
               <span class="tag">Pharmaceuticals</span>
             </div>
-            <a href="brushes.html#bottle" class="btn btn-primary" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> Learn More</a>
+            <button class="btn btn-primary view-details-btn" data-product="bottle" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> View Details</button>
           </div>
         </div>
         <!-- SS Wire Brush -->
@@ -195,7 +195,7 @@
               <span class="tag">Aluminium</span>
               <span class="tag">Corrosion Resistant</span>
             </div>
-            <a href="brushes.html#sswire" class="btn btn-primary" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> Learn More</a>
+            <button class="btn btn-primary view-details-btn" data-product="sswire" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> View Details</button>
           </div>
         </div>
         <!-- GI Wire Brush -->
@@ -211,7 +211,7 @@
               <span class="tag">Rust Removal</span>
               <span class="tag">Paint Stripping</span>
             </div>
-            <a href="brushes.html#giwire" class="btn btn-primary" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> Learn More</a>
+            <button class="btn btn-primary view-details-btn" data-product="giwire" style="width: 100%; padding: 0.7rem;"><i class="fas fa-arrow-right"></i> View Details</button>
           </div>
         </div>
       </div>
@@ -483,6 +483,16 @@
       </div>
     </div>
   </footer>
+  
+  <!-- Product Detail Modal -->
+  <div class="product-detail-overlay" id="productOverlay" data-lenis-prevent>
+    <div class="modal-window">
+      <div class="close-detail" id="closeOverlay"><i class="fas fa-times"></i></div>
+      <div id="overlayContent">
+        <!-- Content injected via JS -->
+      </div>
+    </div>
+  </div>
 
   <!-- WhatsApp -->
   <a href="https://wa.me/919810193074" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
