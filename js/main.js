@@ -388,18 +388,28 @@ function initContactForm() {
 }
 
 /* ===== Smooth Scroll ===== */
+/* ===== Smooth Scroll (Synced with Lenis) ===== */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
       const href = anchor.getAttribute('href');
-      if (href === '#') return;
+      if (href === '#' || !href) return;
       e.preventDefault();
+      
       const target = document.querySelector(href);
       if (target) {
-        window.scrollTo({
-          top: target.getBoundingClientRect().top + window.scrollY - 80,
-          behavior: 'smooth'
-        });
+        if (lenis) {
+          lenis.scrollTo(target, {
+            offset: -80,
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+          });
+        } else {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - 80,
+            behavior: 'smooth'
+          });
+        }
       }
     });
   });
