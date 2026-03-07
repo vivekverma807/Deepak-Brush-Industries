@@ -50,6 +50,16 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: #fff;
+}
+
 html.lenis {
   height: auto;
 }
