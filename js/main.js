@@ -45,6 +45,35 @@ function initLenis() {
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
+
+  // Global mouse position for CSS depth effects
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    document.body.style.setProperty('--mouse-x', x + '%');
+    document.body.style.setProperty('--mouse-y', y + '%');
+  });
+
+  initMagnetic();
+}
+
+function initMagnetic() {
+  const magnets = document.querySelectorAll('.nav-logo, .nav-links a, .nav-cta, .btn');
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  magnets.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
 }
 
 const productData = {
@@ -390,22 +419,6 @@ function initChapterNav() {
       if (entry.isIntersecting) {
         const index = Array.from(chapters).indexOf(entry.target);
         dots.forEach((d, i) => d.classList.toggle('active', i === index));
-        
-        // Sync with navbar if on home page
-        if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
-          const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
-          const chapterName = entry.target.dataset.chapter.toLowerCase();
-          
-          navLinks.forEach(link => {
-            const linkText = link.textContent.toLowerCase();
-            link.classList.remove('active');
-            
-            if (chapterName.includes('beginning') && linkText.includes('home')) link.classList.add('active');
-            if (chapterName.includes('product') && linkText.includes('brush')) link.classList.add('active');
-            if (chapterName.includes('why') && linkText.includes('about')) link.classList.add('active');
-            if (chapterName.includes('contact') && linkText.includes('contact')) link.classList.add('active');
-          });
-        }
       }
     });
   }, { threshold: 0.3 });
