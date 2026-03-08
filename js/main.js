@@ -644,6 +644,14 @@ function initContactForm() {
     });
 
     const email = data.get('email');
+    const honeypot = data.get('website_hp');
+
+    // Security: Honeypot check for bots
+    if (honeypot) {
+      console.warn('Spam detected via honeypot');
+      return; 
+    }
+
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       form.querySelector('[name="email"]').style.borderColor = '#EF4444';
       valid = false;

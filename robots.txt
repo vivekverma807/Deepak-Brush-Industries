@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/private/ # Just in case
+Sitemap: https://deepakbrushindustries.com/sitemap.xml
+

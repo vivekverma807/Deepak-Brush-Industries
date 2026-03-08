@@ -46,7 +46,8 @@ Since this is a static website, you can view it directly:
 
 **Address**: Shed No. 27, Work Centre 72, DSIIDC Industrial Complex, G Block, Mangol Puri, Delhi-110083
 **Phone**: +91 98101 93074 | +91 99108 59057
-**Email**: info@deepakbrush.com
+**Email**: info@deepakbrushindustries.com
 
 ---
 *&copy; 2026 Deepak Brush Industries. All Rights Reserved.*
+
