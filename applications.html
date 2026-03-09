@@ -10,8 +10,14 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https://maps.google.com https://maps.gstatic.com https://*.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self';">
-  <style>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https://maps.google.com https://maps.gstatic.com https://*.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self';">
+  
+  <!-- SEO & Social -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Industry Applications — Deepak Brush Industries">
+  <meta name="twitter:description" content="Discover how industrial brushes are used across steel, textile, wood, food processing, conveyor cleaning, and surface finishing industries.">
+  <meta property="og:image" content="https://deepakbrushindustries.com/assets/images/og-image.jpg">
+</head>  <style>
     .app-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
@@ -169,15 +175,75 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><a href="index.html" class="nav-logo" style="margin-bottom:1rem;display:inline-flex;"><img src="assets/images/logo.png" alt="DBI" style="height:38px;"><div class="nav-logo-text">Deepak Brush<span>Industries</span></div></a><p>India's trusted manufacturer of premium industrial brushes. 40+ years of excellence.</p><div class="footer-social"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
-        <div><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="brushes.html">Brushes</a></li><li><a href="applications.html">Applications</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div><h4>Products</h4><ul class="footer-links"><li><a href="brushes.html#roller">Roller</a></li><li><a href="brushes.html#circular">Circular</a></li><li><a href="brushes.html#strip">Strip</a></li><li><a href="brushes.html#wire">Wire</a></li><li><a href="brushes.html#cup">Cup</a></li></ul></div>
-        <div><h4>Contact</h4><div class="footer-contact-item"><span class="icon"><i class="fas fa-map-marker-alt"></i></span><span>Mangol Puri, Delhi</span></div><div class="footer-contact-item"><span class="icon"><i class="fas fa-phone"></i></span><span>+91 98101 93074</span></div><div class="footer-contact-item"><span class="icon"><i class="fas fa-envelope"></i></span><span>info@deepakbrushindustries.com</span></div></div>
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom: 1rem; display: inline-flex;">
+            <img src="assets/images/logo.png" alt="Deepak Brush Industries" style="height: 38px;" loading="lazy">
+            <div class="nav-logo-text">Deepak Brush<span>Industries</span></div>
+          </a>
+          <p>One of India's prominent Industrial Polishing Brush Manufacturers and Suppliers. Over 40 years of manufacturing excellence under the supervision of Mr. Deepak Verma.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+          <div class="footer-locations">
+            <span class="location-badge"><i class="fas fa-map-pin"></i> Delhi</span>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="brushes.html">Our Brushes</a></li>
+            <li><a href="applications.html" class="active">Applications</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="brushes.html#brass">Brass Wire Brush</a></li>
+            <li><a href="brushes.html#brasscup">Brass Wire Brush Cup</a></li>
+            <li><a href="brushes.html#circular">Circular Wire Brush</a></li>
+            <li><a href="brushes.html#bottle">Bottle Cleaning Brush</a></li>
+            <li><a href="brushes.html#sswire">SS Wire Brush</a></li>
+            <li><a href="brushes.html#giwire">GI Wire Brush</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <span>Shed No. 27, DSIDC Industrial Complex, G Block, Mangolpuri, Delhi-110083</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon"><i class="fas fa-phone"></i></span>
+            <span>+91 98101 93074<br>+91 99108 59057</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <span>info@deepakbrushindustries.com<br>sales@deepakbrushindustries.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon"><i class="fas fa-clock"></i></span>
+            <span>Mon – Sat: 9 AM – 6 PM<br>Sunday: Closed</span>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 Deepak Brush Industries.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Deepak Brush Industries. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
     </div>
   </footer>
-  <a href="https://wa.me/919810193074" target="_blank" rel="noopener noreferrer" class="whatsapp-float"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://wa.me/919810193074" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js" integrity="sha384-KZetIXtrdbXstGhLNEbeSTfjZCr0QrioGU9dJl486Zr69ewuEbtdUsrqTIkGOPgl" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>

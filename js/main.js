@@ -6,24 +6,31 @@
 let lenis;
 
 document.addEventListener('DOMContentLoaded', () => {
-  initLenis();
-  initCustomCursor();
-  initScrollProgress();
-  initNavbar();
-  initMobileMenu();
-  initChapterNav();
-  initScrollReveals();
-  initWordReveal();
-  initCounters();
-  initParticles();
-  initDragScroll();
-  initParallaxLayers();
-  initContactForm();
-  initSmoothScroll();
-  initTextReveal();
-  initTiltCards();
-  initBackToTop();
-  initProductDetails();
+  try {
+    initLenis();
+    initCustomCursor();
+    initScrollProgress();
+    initNavbar();
+    initMobileMenu();
+    initChapterNav();
+    initScrollReveals();
+    initWordReveal();
+    initCounters();
+    initParticles();
+    initDragScroll();
+    initParallaxLayers();
+    initContactForm();
+    initSmoothScroll();
+    initTextReveal();
+    initTiltCards();
+    initBackToTop();
+    initProductDetails();
+    
+    // Log successful initialization
+    console.log('%c DBI Web Engine v2.0 Initialized ', 'background: #0B3D91; color: #fff; font-weight: bold;');
+  } catch (error) {
+    console.error('DBI Initialization Error:', error);
+  }
 });
 
 /* ===== Lenis Smooth Scroll ===== */
@@ -209,6 +216,9 @@ function initProductDetails() {
           if (img) data.image = img.getAttribute('src');
         }
         renderProduct(data, overlay, content);
+      } else {
+        console.warn(`Product data missing for: ${id}`);
+        // Fallback: Just show contact CTA or generic info if needed
       }
     });
   });
