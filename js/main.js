@@ -94,7 +94,7 @@ const productData = {
       { l: "Diameter", v: "2\" to 12\" (Customizable)" },
       { l: "Wire Type", v: "High-Tensile Carbon Steel / SS" },
       { l: "Mounting", v: "Bore Hole or Threaded Nut" },
-      { l: "Max RPM", v: "Update to 15,000 depending on size" },
+      { l: "Max RPM", v: "Up to 15,000 depending on size" },
       { l: "Material", v: "Heat-tempered steel wire" }
     ],
     apps: [

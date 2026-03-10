@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Deepak Brush Industries</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    .error-page {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--theme-bg-body);
+      color: var(--theme-text-main);
+      padding: 2rem;
+    }
+    .error-container {
+      max-width: 600px;
+    }
+    .error-code {
+      font-size: 8rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1;
+      margin-bottom: 1rem;
+      font-family: var(--font-heading);
+      opacity: 0.15;
+    }
+    .error-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-heading);
+    }
+    .error-msg {
+      color: var(--theme-text-muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <div class="error-page">
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Looking for something?</h1>
+      <p class="error-msg">
+        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. 
+        Let’s get you back on track to the industrial solutions you need.
+      </p>
+      <div class="error-actions">
+        <a href="index.html" class="btn btn-primary">Go to Home</a>
+        <a href="brushes.html" class="btn btn-secondary">Browse Brushes</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Simple theme check for 404 page
+    if (localStorage.getItem('dbi-theme') === 'light') {
+      document.body.classList.add('light-mode');
+    }
+  </script>
+</body>
+</html>

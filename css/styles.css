@@ -51,13 +51,24 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 ::selection {
-  background: rgba(16, 185, 129, 0.3);
+  background: rgba(255, 106, 0, 0.3);
   color: #fff;
 }
 
-::-moz-selection {
-  background: rgba(16, 185, 129, 0.3);
-  color: #fff;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg-body);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a4a;
+  border-radius: 10px;
+  border: 2px solid var(--theme-bg-body);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 html.lenis {
